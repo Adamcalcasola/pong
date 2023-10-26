@@ -14,18 +14,15 @@ r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
 scoreboard = Scoreboard()
-game_on = True
-
-def end_game():
-    global game_on = False
 
 screen.listen()
 screen.onkeypress(fun=r_paddle.move_up, key="Up")
 screen.onkeypress(fun=r_paddle.move_down, key="Down")
 screen.onkeypress(fun=l_paddle.move_up, key="w")
 screen.onkeypress(fun=l_paddle.move_down, key="s")
+screen.onkeypress(fun=scoreboard.end_game, key="x")
 
-while game_on:
+while scoreboard.game_on:
 
     time.sleep(ball.move_speed)
     screen.update()

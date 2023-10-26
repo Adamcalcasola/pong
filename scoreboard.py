@@ -1,4 +1,6 @@
 from turtle import Turtle
+
+
 class Scoreboard(Turtle):
 
     def __init__(self):
@@ -9,6 +11,7 @@ class Scoreboard(Turtle):
         self.l_score = 0
         self.r_score = 0
         self.update_scoreboard()
+        self.game_on = True
 
     def update_scoreboard(self):
         self.clear()
@@ -25,3 +28,7 @@ class Scoreboard(Turtle):
         self.r_score += 1
         self.update_scoreboard()
 
+    def end_game(self):
+        self.game_on = False
+        self.goto(0, 0)
+        self.write("GAME OVER", align="center", font=("Courier", 60, "normal"))
